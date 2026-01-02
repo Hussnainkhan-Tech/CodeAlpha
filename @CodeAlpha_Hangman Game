@@ -11,6 +11,7 @@ Key Concepts Used: random, while loop, if-else, strings, lists.
 HANGMAN GAME PROJECT CODE:
 
 
+
 import random
 
 words = ["codealpha", "python", "coder", "hangman", "game"]
