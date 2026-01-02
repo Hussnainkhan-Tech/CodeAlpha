@@ -1,2 +1,45 @@
 # CodeAlpha
 This repository contains the project developed as part of the CodeAlpha internship program, focusing on practical implementation and skill enhancement.
+
+creat a simple text based-hangman game where the player guesses a word one letter at a time. Simplified Scope: 
+● Use a small list of 5 predefined words (no need to use a file or API).
+● Limit incorrect guesses to 6. 
+● Basic console input/output — no graphics or audio.
+Key Concepts Used: random, while loop, if-else, strings, lists.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+HANGMAN GAME PROJECT CODE:
+
+
+import random
+
+words = ["codealpha", "python", "coder", "hangman", "game"]
+secret_word = random.choice(words)
+guessed_letters = []
+wrong_guesses = 0
+max_wrong = 6
+print("Welcome to Hangman!")
+while wrong_guesses < max_wrong:
+    display_word = ""
+    for letter in secret_word:
+        if letter in guessed_letters:
+            display_word += letter
+        else:
+            display_word += "_"
+    print("\nWord:", display_word)
+    if "_" not in display_word:
+        print("🎉 You won!")
+        break
+    guess = input("Guess a letter: ").lower()
+    if guess in guessed_letters:
+        print("You already guessed that letter.")
+        continue
+    guessed_letters.append(guess)
+    if guess not in secret_word:
+        wrong_guesses += 1
+        print("❌ Wrong guess! Attempts left:", max_wrong - wrong_guesses)
+    else:
+        print("✅Correct guess!")
+if wrong_guesses == max_wrong:
+    print("\nGAME OVER!")
+    print("The word was:", secret_word)
